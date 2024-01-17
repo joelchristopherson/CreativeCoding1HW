@@ -1,1 +1,7 @@
-This is where I will write 200 words.
+Joel Christopherson 1/16/2023
+
+Command Line Interface (CLI) and Graphical User Interface (GUI) represent two different approaches to interacting with computers. Each of these approaches offer many advantages and disadvantages. CLI uses text-based commands entered into a terminal. This requires users to be very precise when giving instructions to execute specific tasks. CLI is highly efficient for users that are very experienced and who prefer keyboard shortcuts and automation. Because of this, CLI can be utilized for both scripting and server administration. The major drawback of CLI is the learning curve.
+
+On the other hand, GUI provides a visual interface with icons, buttons, and windows, which provides a more intuitive and user-friendly experience. Users interact with the system through graphical elements, which eliminates the user's need to memorize prompts like CLI. This makes GUIs accessible to a broader audience, particularly those less familiar in technical areas. GUIs are very popular and are found everywhere whether it be operating systems, applications, and mobile devices, all of which enhance user experience through visual feedback.
+
+While CLI emphasizes speed and precision, GUI is based on a user-friendly interaction. The choice between the two usually depends on the user's expertise, the task the user is trying to accomplish, and personal preferences. That being said, there are systems that offer a combination of both interfaces, allowing users to use the strengths of each depending on the task.
