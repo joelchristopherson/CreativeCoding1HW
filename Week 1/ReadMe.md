@@ -1,8 +1,6 @@
 Note: The .DS_Store was created after I moved the file locations with in the folder. 
 
-This is the homework from week 1.
-
-Week 1 Homework
+# Week 1 Homework
 
 Github
 
