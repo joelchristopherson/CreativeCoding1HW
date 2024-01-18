@@ -1,3 +1,5 @@
+Note: The extra file is a screenshot of my results from the learning styles quiz.
+
 # Week 2 Homework
 Specifics for homework:
 
