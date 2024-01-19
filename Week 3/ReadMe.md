@@ -11,7 +11,7 @@ Yes, the time has come for you to create a small story or game in Scratch. I kno
 
 1) At least two characters.
 2) Each character should have at least three costumes.
-3)At least two backgrounds.
+3) At least two backgrounds.
 4) There should be broadcasting.
 5) There should be a variable or more.
 6) There should be a background sound or otherwise.
