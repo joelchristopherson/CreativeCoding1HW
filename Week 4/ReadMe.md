@@ -17,3 +17,8 @@ Specifics:
 5)Submit your repository link to Moodle.
 6) Submit and respond in the discord on your thoughts about smartphones.
 7) Submit and respond in the discord either your play lab or mobile app
+
+# Playlab Link: 
+https://studio.code.org/projects/playlab/E_KcnE4Ojn2LPpuC_VVZ1na4_whnnisHhrMYNPYWl1s
+
+# App Lab Link:
