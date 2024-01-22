@@ -6,8 +6,8 @@ Specifics:
 
 1) Create a Homework 4 folder.
 2) Add a file that contains your Play Lab link to your repository.
-*Make sure you have at least two characters
-*Change the background
+* Make sure you have at least two characters
+* Change the background
     -Some interaction between the characters
     -A scoring system if it’s a collectible or avoidance game
     -Allow the end-user to move at least one character.
