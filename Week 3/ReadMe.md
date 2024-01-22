@@ -1,3 +1,6 @@
+# Scratch Link
+https://scratch.mit.edu/projects/953525207
+
 # Week 3 Homework
 You have a few things due this week.
 
