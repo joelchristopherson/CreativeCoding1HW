@@ -1,5 +1,11 @@
 # Week 4 Homework
 
+# Playlab Link: 
+https://studio.code.org/projects/playlab/E_KcnE4Ojn2LPpuC_VVZ1na4_whnnisHhrMYNPYWl1s
+
+# App Lab Link:
+https://studio.code.org/projects/applab/QsCJCfKFOMQcKcBRRbjjhEo6PVHLZs94g9BiGRm-S60
+
 In this homework, you have 4 things, which are listed below.
 
 Specifics:
@@ -18,7 +24,3 @@ Specifics:
 6) Submit and respond in the discord on your thoughts about smartphones.
 7) Submit and respond in the discord either your play lab or mobile app
 
-# Playlab Link: 
-https://studio.code.org/projects/playlab/E_KcnE4Ojn2LPpuC_VVZ1na4_whnnisHhrMYNPYWl1s
-
-# App Lab Link:
