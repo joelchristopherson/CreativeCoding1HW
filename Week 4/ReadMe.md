@@ -20,7 +20,7 @@ Specifics:
 3) Add a file that contains Mobile App link to your repository.
  * It can be a game, Choose your adventure, A question, and answer, A canvas drawing app, etc.
 4) Your Homework 4 folder should contain 2 files.
-5)Submit your repository link to Moodle.
+5) Submit your repository link to Moodle.
 6) Submit and respond in the discord on your thoughts about smartphones.
 7) Submit and respond in the discord either your play lab or mobile app
 
