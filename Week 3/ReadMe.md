@@ -2,6 +2,7 @@
 https://scratch.mit.edu/projects/953525207
 
 # Week 3 Homework
+
 You have a few things due this week.
 
 1) Week 3 [Discord](https://discord.com/channels/1193953766668501058/1194758674950926429) post on grit and overcoming challenges
