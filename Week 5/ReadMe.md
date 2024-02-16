@@ -1,4 +1,6 @@
-## In this homework, let’s take Alice for a spin and see what we can do.
+## Week 5 Homework
+
+In this homework, let’s take Alice for a spin and see what we can do.
 
 1) Create an Alice application
 2) It can be a game or a story
