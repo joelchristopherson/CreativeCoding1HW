@@ -1,4 +1,4 @@
-# Week 6 Homework
+## Week 6 Homework
 
 In this homework, you are going to create a couple of HTML pages. Hang onto them as you will add to them over the next couple of weeks.
 
