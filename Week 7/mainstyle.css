@@ -47,3 +47,15 @@ nav a {
     font-weight: bolder;
     font-size: large;
 }
+
+#second-page {
+  background-image: url('gym-background-min.jpg'); /* Adjust the path as necessary */
+  background-size: cover; /* Cover the entire page */
+  background-position: center; /* Center the background image */
+}
+
+#white {
+  color: white;
+  -webkit-text-stroke: .25px #00141b;
+  
+}
