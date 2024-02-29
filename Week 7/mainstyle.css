@@ -1,0 +1,49 @@
+.fixmargins{
+    body, html {
+      margin: 0;
+      padding: 0;
+    }
+}
+
+.header-container {
+    display:flex;
+    align-items: center; 
+    justify-content: space-between;
+    padding: 0 20px;
+    background-color: #00141b;
+    white-space: nowrap;
+    opacity: 100%;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  background-color: #00141b; 
+  color: white;
+
+}
+
+.footer-column {
+    flex: 1;
+    text-align: center;
+    padding: 0 10px; 
+    border-right: 1px solid white; 
+  }
+  
+  .footer-column:last-child {
+    border-right: none; 
+  }
+
+nav a {
+  color: crimson;
+  text-decoration: none;
+  font-size: large;
+  padding: 15px;
+  font-weight: bold;
+}
+
+#footerheading{
+    font-weight: bolder;
+    font-size: large;
+}
