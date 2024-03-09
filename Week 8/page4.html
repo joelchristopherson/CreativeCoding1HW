@@ -4,13 +4,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="./styles/css/bootstrap-utilities.css"> <!--External File Sheet Using Bootstrap See page 3 & 4-->
 <script>
-function getData()
+function getData(event)
   {
+    event.preventDefault();
       var name = document.getElementById("txtName").value;
       var email = document.getElementById("txtEmail").value;
-      var terms = document.getElementById("cbTerms").value
+      var termsChecked = document.getElementById("cbTerms").checked;
 
-     window.alert("Name: " + name + " Email: " + email)
+var termsMessage = termsChecked ? "Terms and conditions accepted." : "Terms and conditions not accepted.";
+window.alert("Name: " + name + "\nEmail: " + email + "\n" + termsMessage);
+/* window.alert("Name: " + name + " Email: " + email)*/
+
   }</script>
 </head>
   <link rel="stylesheet" type="text/css" href="mainstyle.css">
@@ -61,7 +65,7 @@ function getData()
     <option value="Anytime">Anytime</option>
 </select><br><br>
       <input type="checkbox"  id="cbTerms" required> *I agree to the terms and conditions. <br> <br>
-      <input type="submit" value="Submit" onclick="getData()" class="text-bg-secondary,nav-button";" > <!--External File Sheet Using Bootstrap-->
+      <input type="submit" value="Submit" onclick="getData(event)" class="text-bg-secondary,nav-button";" > <!--External File Sheet Using Bootstrap-->
 
     </form>
 
