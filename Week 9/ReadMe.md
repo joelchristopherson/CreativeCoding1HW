@@ -13,4 +13,4 @@ This week’s homework introduces us to p5.js. You are going to create a self-po
 8) Sign your portrait with your name. (Just print your name using the text function)
 9)Upload everything into GitHub and turn in your link to Moodle.
 
-##No discussion this week.
+## No discussion this week.
