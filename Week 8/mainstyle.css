@@ -59,3 +59,13 @@ nav a {
   -webkit-text-stroke: .25px #00141b;
   
 }
+
+input.error,
+select.error {
+    border: 2px solid red !important; 
+}
+
+.error:focus {
+  outline: none; 
+  border: 2px solid red; 
+}

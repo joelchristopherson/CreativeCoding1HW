@@ -3,19 +3,59 @@
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="./styles/css/bootstrap-utilities.css"> <!--External File Sheet Using Bootstrap See page 3 & 4-->
-<script>
-function getData(event)
-  {
-    event.preventDefault();
-      var name = document.getElementById("txtName").value;
-      var email = document.getElementById("txtEmail").value;
-      var termsChecked = document.getElementById("cbTerms").checked;
 
-var termsMessage = termsChecked ? "Terms and conditions accepted." : "Terms and conditions not accepted.";
-window.alert("Name: " + name + "\nEmail: " + email + "\n" + termsMessage);
-/* window.alert("Name: " + name + " Email: " + email)*/
-
-  }</script>
+<!--This script took me entirely too long and I had trouble with the focus, but I think this should meet the HW requirements-->
+      <script>
+        function getData(event) {
+            event.preventDefault();
+        
+            var isValid = true;
+        
+            var name = document.getElementById("txtName");
+            var email = document.getElementById("txtEmail");
+            var termsChecked = document.getElementById("cbTerms");
+            var selectedTime = document.getElementById("selectTime");
+        
+            function validateAndFocus(element, isCheckbox) {
+                if ((element.value.trim() === "" && !isCheckbox) || 
+                    (element.id === "selectTime" && element.value === "Please Select an Option...") ||
+                    (isCheckbox && !element.checked)) {
+                    element.classList.add('error');
+                    if (isValid) { 
+                        if (!isCheckbox) element.focus();
+                        isValid = false;
+                    }
+                    if (isCheckbox && !document.getElementById('termsError')) {
+                        var errorText = document.createElement('span');
+                        errorText.id = 'termsError';
+                        errorText.style.color = 'red';
+                        errorText.textContent = ' You must accept the terms and conditions.';
+                        termsChecked.parentNode.insertBefore(errorText, termsChecked.nextSibling);
+                    }
+                    return false;
+                } else {
+                    element.classList.remove('error');
+                    if (isCheckbox) {
+                        var existingErrorText = document.getElementById('termsError');
+                        if (existingErrorText) existingErrorText.remove();
+                    }
+                }
+                return true;
+            }
+        
+            if (!validateAndFocus(name, false) || !validateAndFocus(email, false) || !validateAndFocus(selectedTime, false)) {
+                return; 
+            }
+        
+            validateAndFocus(termsChecked, true);
+        
+            if (isValid) {
+                var termsMessage = termsChecked.checked ? "Terms and Conditions Accepted." : "Terms and Conditions Not Accepted.";
+                var selectedTimeMessage = "Preferred Contact Time: " + selectedTime.options[selectedTime.selectedIndex].value;
+                window.alert("Name: " + name.value + "\nEmail: " + email.value + "\n" + selectedTimeMessage + "\n" + termsMessage);
+            }
+        }
+      </script>
 </head>
   <link rel="stylesheet" type="text/css" href="mainstyle.css">
   <title>Contact Us - Forge Forward Fitness</title>
@@ -52,19 +92,20 @@ window.alert("Name: " + name + "\nEmail: " + email + "\n" + termsMessage);
       <input type="checkbox" value="None" > None<br>
       <br>
       <label>*Your Name:</label><br>
-      <input type="text" id="txtName" required><br><br>
+      <input type="text" id="txtName" ><br><br>
       <label>*Your Email:</label><br>
-      <input type="email" id="txtEmail" required><br><br>
-      <label>*Your Message:</label><br>
+      <input type="email" id="txtEmail" ><br><br>
+      <label>Your Message:</label><br>
       <textarea></textarea><br><br>
       <label>*Best Time To Reach You:</label><br>
-<select>
+      <!--<form onsubmit="getData(event)">-->
+      <select id="selectTime">
     <option value="Please Select an Option...">Please Select an Option...</option>
     <option value="Morning">Morning</option>
     <option value="Night">Night</option>
     <option value="Anytime">Anytime</option>
 </select><br><br>
-      <input type="checkbox"  id="cbTerms" required> *I agree to the terms and conditions. <br> <br>
+      <input type="checkbox"  id="cbTerms" > *I agree to the terms and conditions. <br> <br>
       <input type="submit" value="Submit" onclick="getData(event)" class="text-bg-secondary,nav-button";" > <!--External File Sheet Using Bootstrap-->
 
     </form>
