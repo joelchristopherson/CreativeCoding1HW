@@ -1,4 +1,4 @@
-# Homework
+# Week 11 Homework
 For this homework, you are going to create a game. It should be made up of a bunch of simple shapes (they can be the same or different). After you place them on the screen, you should move them around the screen randomly. If they leave the screen, you should have them go to the other side of the screen. You should also have a way to place an obstacle onto the screen with your mouse. Once the player moves off the screen through the exit, you should display a message that says “You Win!”. Don’t worry about any collisions.
 
 ## Specifications
