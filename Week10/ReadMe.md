@@ -1,4 +1,4 @@
-# Homework
+# Week 10 Homework
 This week, you are going to animate your self-portrait. Now that you know how to make objects move back and forth, choose a few simple shapes to go back and forth along the x-axis. Also, select a couple of your shapes to move along the y-axis, and at least one simple shape to move using both the x and y-axis. Finally, make the title of your portrait get bigger five times and then smaller five times. Repeat that forever.
 
 Here is an example that does some of the following items below: Homework Example
