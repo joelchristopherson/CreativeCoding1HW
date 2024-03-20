@@ -1,11 +1,11 @@
 function setup() {
     createCanvas(1000, 400);
    
-//setting values for my player and exit
+//setting values for my player and exit, This is turning the variables into the object.
     player = { x: 30, y: height / 2, size: 20, color: 'blue' };
     exit = { x: width - 50, y: height - 400, size: 1000, color: 'green' };
 
-    // Creating my array for the enemys
+    // Creating my array for the enemies
     obstacles = [];
     for (let i = 0; i < 4; i++) {
         obstacles.push({
