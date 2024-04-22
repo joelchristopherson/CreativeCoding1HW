@@ -11,7 +11,7 @@ In this extracredit, you are going to use your project from last time to impleme
 7) Ignore all collisions. screenshot your results.
 8)Upload everything to GitHub and turn in your link.
 
-##Looking for more to do?
+## Looking for more to do?
 
 1) Keep adding objects to the screen whenever the mouse is clicked.
 2) Move the objects that are added whenever the mouse is clicked.
