@@ -6,7 +6,7 @@ function preload() {
   mySound = loadSound('audiofiles/Audio002.mp3');
 }
 
-function Setup() {
+function setup() {
   createCanvas(windowWidth, windowHeight);
   fft = new p5.FFT()
 }
