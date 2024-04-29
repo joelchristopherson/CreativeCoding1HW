@@ -12,8 +12,8 @@ function setup() {
 }
 
 function draw() {
-  background(0)
-  stroke(255)
+  background(200)
+  stroke(0)
   nofill()
 
   var wave = fft.wavefrom()
