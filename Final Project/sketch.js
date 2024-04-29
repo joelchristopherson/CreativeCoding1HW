@@ -7,7 +7,7 @@ function preload() {
 }
 
 function Setup() {
-  createCanvas(width, 1000, height, 1000);
+  createCanvas(windowWidth, windowHeight);
   fft = new p5.FFT()
 }
 
