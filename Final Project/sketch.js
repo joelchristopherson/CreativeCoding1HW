@@ -23,7 +23,7 @@ function draw() {
     var index = floor(map(i, 0, width, 0, wave.length))
 
     var x = i
-    var y = wave[index] * 300 + height / 2
+    var y = wave[index] * 30 + height / 2
     point(x,y)
   }
   //endShape()
