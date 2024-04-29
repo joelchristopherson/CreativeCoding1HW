@@ -1,9 +1,9 @@
-var mySound
+var mySong
 var fft
 
-function preload() {
-  soundFormats('mp3');
-  mySound = loadSound('audiofiles/Audio002.mp3');
+function preloadMusic() {
+  //soundFormats('mp3');
+  mySong = loadSound('audiofiles/Audio002.mp3');
 }
 
 function setup() {
@@ -12,9 +12,9 @@ function setup() {
 }
 
 function draw() {
-  background(200)
-  stroke(0)
-  nofill()
+  background(0)
+  stroke(255)
+  //nofill()
 
   var wave = fft.wavefrom()
 
@@ -30,8 +30,8 @@ function draw() {
 }
 
 function mouseClicked() {
-  if (mySound.isPlaying()){
-    mySound.pause()
+  if (mySong.isPlaying()){
+    mySong.pause()
   } else
-  mySound.play()
+  mySong.play()
 }
