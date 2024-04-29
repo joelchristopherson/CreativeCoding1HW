@@ -2,7 +2,7 @@ var mySound
 var fft
 
 function preload() {
-  //soundFormats('mp3');
+  soundFormats('mp3');
   mySound = loadSound('audiofiles/Audio002.mp3');
 }
 
