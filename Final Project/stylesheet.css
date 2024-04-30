@@ -1,0 +1,31 @@
+#playPauseButton {
+    background-color: rgb(127, 216, 154);
+    color: rgb(0, 0, 0);
+    border-color: white;
+    border-radius: 1px;
+    border-width: 2px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:larger;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  #textFormat {
+    fill: white;
+    font-size: x-small;
+    top: 20px;
+    left: 20px;
+  }
+  .nav-button:hover:hover {
+    opacity: 0.8;
+}
+
+#selectSongLabel {
+    color: rgb(255, 255, 255); /* Black text */
+    background-color: transparent; /* Transparent background */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /* Font styling */
+    font-size: large; /* Larger font size */
+    font-weight: bold; /* Bold font weight */
+}
+
+
