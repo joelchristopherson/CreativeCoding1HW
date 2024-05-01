@@ -23,7 +23,7 @@ var playPauseButton;
 
 //Queues up the first song and sets up the program to play mp3 files I upload
 function preload() {
-  soundFormats('mp3');
+  //soundFormats('mp3');
   mySong = loadSound('audiofiles/tillIleave.mp3');
 }
 
