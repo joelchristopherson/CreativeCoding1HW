@@ -1,6 +1,7 @@
 var mySong
 var fft
 var particles = []
+var visualizationSelect; // Global variable for the dropdown
 // var songs = ['audiofiles/tillIleave.mp3', 'audiofiles/whoa(mindinawe).mp3', 'audiofiles/Runoff.mp3'];
 var songs = [
   { name: "Till I Leave", file: "audiofiles/tillIleave.mp3" },
@@ -9,6 +10,7 @@ var songs = [
   { name: "Audio 002", file: "audiofiles/Audio002.mp3" },
   { name: "Diamondz n Roses", file: "audiofiles/DiamondznRoses.mp3"},
   { name: "METAMORPHOSIS", file: "audiofiles/METAMORPHOSIS (Sped Up).mp3"}
+  //EDM, Scrillex, Narcos - timmy trumpets, pitbull
 ];
 var currentSong;
 var songSelect;
@@ -37,6 +39,18 @@ function setup() {
     songSelect.option(song.name, index); // Add options to the dropdown
   });
   songSelect.changed(loadSelectedSong); // Load song when selection changes
+
+    // Setup for visualization selection
+    let visLabel = createSpan('Select Visualization: ');
+    visLabel.id('selectSongLabel')
+    visLabel.position(335, 12.5);
+    visualizationSelect = createSelect();
+    visualizationSelect.position(510, 10);
+    visualizationSelect.id('playPauseButton')
+    visualizationSelect.class('nav-button')
+    visualizationSelect.option('Circle Visualization', 'circle');
+    visualizationSelect.option('Linear Waveform', 'linear');
+    visualizationSelect.option('Spectrum Visualization', 'spectrum')
 
   playPauseButton = createButton('Play/Pause');
   playPauseButton.id('playPauseButton'); 
@@ -76,61 +90,174 @@ function loadSelectedSong() {
   }
 }
 
-function draw() {
-  background(0)
-  strokeWeight(10)
-  stroke(255)
-  //noFill()
+// function draw() {
+//   background(0)
+//   strokeWeight(10)
+//   stroke(255)
+//   //noFill()
 
-  translate(width / 2, height / 2)
+//   translate(width / 2, height / 2)
 
     
-  fft.analyze()
-  amp = fft.getEnergy(20,200)
+//   fft.analyze()
+//   amp = fft.getEnergy(20,200)
 
-  var wave = fft.waveform()
+//   var wave = fft.waveform()
 
-  for (var t = -1; t <= 1; t += 2) {
+//   for (var t = -1; t <= 1; t += 2) {
 
 
-    beginShape()
-    for (var i = 0; i <= 180; i += 0.25) {
-      var index = floor(map(i, 0, 180, 0, wave.length - 1))
+//     beginShape()
+//     for (var i = 0; i <= 180; i += 0.25) {
+//       var index = floor(map(i, 0, 180, 0, wave.length - 2))
 
-      var radius = map(wave[index], -1, 1, 150, 350)
+//       var radius = map(wave[index], -1, 1, 150, 350)
 
-      var x = radius * cos(i)
-      var y = radius * sin(i) * t
-      vertex(x, y)
+//       var x = radius * cos(i)
+//       var y = radius * sin(i) * t
+//       vertex(x, y)
+//     }
+//     endShape()
+//   }
+
+//   var p = new Particle()
+//   particles.push(p)
+
+//   // Always show particles, but only update their position if the song is playing
+//   for (var i = particles.length - 1; i >= 0; i--) {
+//     if (mySong.isPlaying()) {
+//       particles[i].update(amp > 200); // Update positions only if the song is playing
+//     }
+//     particles[i].show(); // Always display particles
+
+//     if (particles[i].remove()) {
+//       particles.splice(i, 1);
+//     }
+//   }
+
+// }
+
+function draw() {
+  background(0);
+  fft.analyze();
+  let vizType = visualizationSelect.value();
+  
+  switch(vizType) {
+    case 'circle':
+      drawCircleVisualization();
+      break;
+    case 'linear':
+      drawLinearVisualization();
+      break;
+    case 'spectrum':
+      drawSpectrumVisualization();
+      break;
+  }
+}
+
+function drawCircleVisualization() {
+  translate(width / 2, height / 2);
+  strokeWeight(10);
+  stroke(255);
+  
+  let wave = fft.waveform();
+  for (let t = -1; t <= 1; t += 2) {
+    beginShape();
+    for (let i = 0; i <= 180; i += 0.25) {
+      let index = floor(map(i, 0, 180, 0, wave.length - 2));
+      let radius = map(wave[index], -1, 1, 150, 350);
+      let x = radius * cos(i);
+      let y = radius * sin(i) * t;
+      vertex(x, y);
     }
-    endShape()
+    endShape();
+  }
+  updateParticles();
+}
+
+function drawLinearVisualization() {
+  let amp = fft.getEnergy(20, 200); // Get amplitude for background and color effects
+  let wave = fft.waveform();
+
+  // Set up color mode and stroke properties for a vibrant waveform
+  colorMode(HSB, 255);
+  noFill();
+
+  // Draw the original waveform with a color gradient
+  beginShape();
+  for (let i = 0; i < width; i++) {
+    let index = floor(map(i, 0, width, 0, wave.length));
+    let x = i;
+    let col = map(wave[index], -1, 1, 0, 255); // Map amplitude to hue
+    stroke(col, 255, 255);
+    let y = wave[index] * 300 + height / 2;
+    vertex(x, y);
+  }
+  endShape();
+
+  // Draw the mirrored waveform with a color gradient
+  beginShape();
+  for (let i = 0; i < width; i++) {
+    let index = floor(map(i, 0, width, 0, wave.length));
+    let x = i;
+    let col = map(wave[index], -1, 1, 0, 255); // Map amplitude to hue
+    stroke(col, 255, 200);  // Slightly different saturation for visual contrast
+    let y = height - (wave[index] * 300 + height / 2);
+    vertex(x, y);
+  }
+  endShape();
+
+  colorMode(RGB, 255); // Reset color mode to default
+}
+
+function drawSpectrumVisualization() {
+  let spectrum = fft.analyze();
+  let beat = fft.getEnergy("bass"); // Use bass frequencies for beat detection
+  let numRings = 15;  // Total number of rings
+  let maxRadius = min(width, height) /1.25 ;  // Maximum radius for the outermost ring
+
+  background(0);  // Black background
+  noFill();  // No fill for the rings
+  strokeWeight(5);  // Width of the rings
+
+  push();  // Save the drawing context
+  translate(width / 2, height / 2);  // Move to the center of the canvas
+
+  for (let i = 0; i < numRings; i++) {
+      let freqIndex = floor(map(i, 0, numRings, 0, spectrum.length / 2));  // Map each ring to a portion of the spectrum
+      let amplitude = spectrum[freqIndex];
+      let radius = map(amplitude, 0, 255, 10, maxRadius / numRings * (i + 1));  // Calculate radius based on amplitude
+
+      // Calculate color based on beat
+      let r = random(50,255);
+      let g = random(50,255);
+      let b = random(50,255);
+
+      stroke(r, g, b);  // Set color based on beat
+      ellipse(0, 0, radius * 2, radius * 2);  // Draw the ring
   }
 
-  var p = new Particle()
-  particles.push(p)
+  pop();  // Restore the drawing context
+}
 
-  // Always show particles, but only update their position if the song is playing
+function updateParticles() {
+  let amp = fft.getEnergy(20, 200);
+  let particleRate = map(amp, 0, 255, 0, 3); // Dynamic particle creation rate based on amplitude
+  // Create particles based on amplitude
+  for (let i = 0; i < particleRate; i++) {
+    particles.push(new Particle());
+  }
   for (var i = particles.length - 1; i >= 0; i--) {
     if (mySong.isPlaying()) {
-      particles[i].update(amp > 200); // Update positions only if the song is playing
+      particles[i].update(amp > 200);
     }
-    particles[i].show(); // Always display particles
-
+    particles[i].show();
     if (particles[i].remove()) {
       particles.splice(i, 1);
     }
   }
-  // for (var i = 0; i < particles.length; i++){
-  //   if (!particles[i].remove()){
-  //     particles[i].update(amp>200)
-  //     particles[i].show()
-  //   } else {
-  //     particles.splice(i, 1)
-  //   }
-
-  // }
-
 }
+
 function togglePlayPause() {
   if (mySong.isPlaying()) {
     mySong.pause();
@@ -147,15 +274,7 @@ function togglePlayPause() {
     loop();
   }
 }
-// function mouseClicked() {
-//   if (mySong.isPlaying()){
-//     mySong.pause()
-//     noLoop()
-//   } else {
-//   mySong.play()
-//   loop()
-//   }
-// }
+
 
 //Creating a particle object and place around the perimeter of the waveform
 class Particle{
@@ -173,6 +292,7 @@ class Particle{
     this.vel.add(this.acc)
     this.pos.add(this.vel)
     if (cond){
+      this.pos.add(this.vel)
       this.pos.add(this.vel)
       this.pos.add(this.vel)
       this.pos.add(this.vel)
@@ -207,15 +327,5 @@ class Particle{
     vertex(x, y)
   }
   endShape()
-}
-
-function mouseClicked() {
-  if (mySong.isPlaying()){
-    mySong.pause()
-    noLoop()
-  } else {
-  mySong.play()
-  loop()
-  }
 }*/
 
