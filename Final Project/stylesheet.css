@@ -1,5 +1,6 @@
+/* This .css file contains the main formating I used for buttons/text/labels etc */
 #playPauseButton {
-    background-color: rgb(127, 216, 154);
+    background-color: rgb(101, 159, 224);
     color: rgb(0, 0, 0);
     border-color: white;
     border-radius: 1px;
@@ -21,11 +22,18 @@
 }
 
 #selectSongLabel {
-    color: rgb(255, 255, 255); /* Black text */
-    background-color: transparent; /* Transparent background */
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /* Font styling */
-    font-size: large; /* Larger font size */
-    font-weight: bold; /* Bold font weight */
+    color: rgb(255, 255, 255); 
+    background-color: transparent; 
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+    font-size: large; 
+    font-weight: bold; 
+}
+
+#helpButton {
+  position: fixed; 
+  right: 20px;    
+  bottom: 20px;  
+  z-index: 1000;  
 }
 
 
